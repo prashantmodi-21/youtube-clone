@@ -1,8 +1,12 @@
-# React + Vite
+# Youtube Clone - A Streaming Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### [Live Site](https://youtube-clone-73sc.onrender.com)
 
-Currently, two official plugins are available:
+![Youtube Clone- Home](https://i.postimg.cc/z3mrjHDW/home.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Introduction
+This is a Youtube Clone Web Application Developed using Reactjs and RapidAPI
+
+Local Setup:
+
+- Run ```npm i``` to install packages and ```npm run dev``` to run run application locally
