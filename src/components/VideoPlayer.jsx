@@ -6,22 +6,27 @@ import { FetchApi } from '../utils/FetchFromApi'
 import VideosCard from './VideosCard'
 import ReactPlayer from 'react-player'
 
-const VideoPlayer = () => {
+const VideoPlayer = ({result}) => {
     const [selectedVideo, setSelectedVideos] = useState()
     const [videos, setVideos] = useState()
     const {id} = useParams()
     useEffect(()=>{
+        result(0)
         FetchApi(`videos?part=snippet&id=${id}`)
         .then((data)=>{
             setSelectedVideos(data.items[0])
+            result(50)
         }).catch((error)=>{
             console.log(error.message)
+            result(100)
         })
         FetchApi(`search?relatedToVideoId=${id}&part=snippet&type=video&maxResults=50`)
             .then((data)=>{
                 setVideos(data.items)
+                result(100)
             }).catch((error)=>{
                 console.log(error.message)
+                result(100)
             })
     }, [id])
     console.log(selectedVideo)

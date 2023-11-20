@@ -4,15 +4,10 @@ import { useParams } from 'react-router-dom'
 import { FetchApi } from '../utils/FetchFromApi'
 import VideosCard from './VideosCard'
 
-const SearchFeed = () => {
-  const [searchResult, setSearchResult] = useState()
+const SearchFeed = ({keyword, searchResult}) => {
   const {query} = useParams()
   useEffect(()=>{
-    FetchApi(`search?part=snippet&q=${query}`)
-      .then((data)=>{
-        const {items} = data
-        setSearchResult(items)
-      })
+    keyword(query)
   }, [query])
   return (
     <Container maxWidth='lg'>

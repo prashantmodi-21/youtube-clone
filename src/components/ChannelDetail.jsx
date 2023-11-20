@@ -4,18 +4,21 @@ import { FetchApi } from '../utils/FetchFromApi'
 import {Box, Container, Typography, Stack, CircularProgress } from '@mui/material'
 import VideosCard from './VideosCard'
 
-const ChannelDetail = () => {
+const ChannelDetail = ({result}) => {
   const [channelDetail, setChannelDetail] = useState()
   const [channelVideos, setChannelVideos] = useState()
   const {id} = useParams()
   useEffect(()=>{
+    result(0)
     FetchApi(`channels?part=snippet&id=${id}`)
     .then((data)=>{
       setChannelDetail(data.items[0])
+      result(50)
     })
     FetchApi(`search?channelId=${id}&part=snippet&order=date`)
     .then((data)=>{
       setChannelVideos(data.items)
+      result(100)
     })
   }, [])
   return (
