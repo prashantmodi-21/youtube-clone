@@ -17,11 +17,13 @@ function App() {
       setProgress(50)
       setVideos(data.items)
       setProgress(100)
+      setTimeout(() => {
+        setProgress(0)
+      }, 1000);
     })
   }, [category])
 
   const handleSearch = (query)=>{
-    setProgress(0)
     setCategory(query)
   }
   const progressBar = (value)=>{
@@ -31,7 +33,7 @@ function App() {
     <>
     <StyledEngineProvider injectFirst />
       <BrowserRouter>
-      <Box sx={progress !== 100 ? {width: '100%'} : {transitionDelay: "1s", width: '0'}}>
+      <Box sx={progress === 0 ? {width: "0"} : {width: '100%'}}>
         <LinearProgress variant="determinate" value={progress} color='error'/>
       </Box>
       <Navbar/>

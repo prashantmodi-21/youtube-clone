@@ -24,11 +24,12 @@ const VideosCard = ({video}) => {
       src={!video.snippet.thumbnails.medium?.url ? video.snippet.thumbnails.default.url : video.snippet.thumbnails.medium.url}
       alt={video.snippet.title}
       className='video-thumb'
-    /></Link>
+    />
     <Stack sx={{margin: '1rem'}}>
-      <Link to={`/video/${video.id.videoId}`}><Typography variant='subtitle2' gutterBottom>{video.snippet.title.slice(0, 40)}...</Typography></Link>
+      <Typography variant='subtitle2' gutterBottom>{video.snippet.title.slice(0, 40)}...</Typography>
       <Link to={`/channel/${video.snippet.channelId}`}><Typography variant='subtitle2' sx={{fontSize: '10px'}}>{video.snippet.channelTitle}</Typography></Link>
     </Stack>
+    </Link>
   </Card>)
     
   )

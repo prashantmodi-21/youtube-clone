@@ -38,7 +38,9 @@ const ChannelDetail = ({result}) => {
       </Box>
       <Stack direction='row' gap={2} flexWrap='wrap' justifyContent='center' sx={{marginTop: '2rem'}}>
       {!channelVideos ? <CircularProgress/> : channelVideos.map((video)=>(
-        <VideosCard key={video.id.channelId} video={video}/>
+        <Box key={video.id.channelId}>
+          <VideosCard video={video}/>
+        </Box>
       ))}
       </Stack>
     </Container>

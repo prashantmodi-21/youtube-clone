@@ -38,9 +38,9 @@ const Sidebar = ({categoryName, category}) => {
     <div>
     <Stack className='scroll-horizontal sidebar' direction={{xs: 'row', sm: 'column'}} alignItems='center' sx={{overflowX: 'hidden'}}>
       {categories.map((item)=>(
-      <button className='category-btn' key={item.name} style={{background: item.name === category && '#FC1503', color: item.name === category && '#FFFFFF'}}>
+      <button className='category-btn' key={item.name} style={{background: item.name === category && '#FC1503', color: item.name === category && '#FFFFFF'}} onClick={()=>categoryName(item.name)}>
         <span style={{marginRight: '2px'}}>{item.icon}</span>
-        <span><Typography variant='subtitle2' onClick={()=>categoryName(item.name)}>{item.name}</Typography></span>
+        <span><Typography variant='subtitle2'>{item.name}</Typography></span>
       </button>
       ))}
       <Typography className='copyright' variant='subtitle2' style={{marginTop: '1rem'}}>Copyright@Youtube 2023</Typography>
