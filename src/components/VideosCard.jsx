@@ -11,8 +11,8 @@ const VideosCard = ({video}) => {
         style={{height: '140px', width: '140px', borderRadius: '50%', margin: '8px 0'}}
       /></Link>
       <div>
-        <Link to={`/channel/${video.snippet.channelId}`}><Typography variant='h5' gutterBottom>{video.snippet.title}</Typography></Link>
-        <Button variant='contained' color='error'>Checkout</Button>
+        <Link to={`/channel/${video.snippet.channelId}`}><Typography variant='h5' gutterBottom>{video.snippet.title}</Typography>
+        <Button variant='contained' color='error'>Checkout</Button></Link>
       </div>
     </div>
     )
@@ -23,7 +23,6 @@ const VideosCard = ({video}) => {
     component='img'
       src={!video.snippet.thumbnails.medium?.url ? video.snippet.thumbnails.default.url : video.snippet.thumbnails.medium.url}
       alt={video.snippet.title}
-      className='video-thumb'
     />
     <Stack sx={{margin: '1rem'}}>
       <Typography variant='subtitle2' gutterBottom>{video.snippet.title.slice(0, 40)}...</Typography>

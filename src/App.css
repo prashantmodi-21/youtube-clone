@@ -4,7 +4,10 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+.darkMode{
+  background-color: black;
+  color: white;
+}
 a {
   text-decoration: none;
   color: black;
@@ -33,7 +36,9 @@ a {
 .category-btn:hover span{
   color: white !important;
 }
-
+.player-layout{
+  margin: 2rem;
+}
 .react-player {
   height: 60vh !important;
   width: 100% !important;
@@ -67,16 +72,24 @@ a {
 .video-card{
   width: 320px;
 }
-.video-thumb{
-  width: 320px;
-  height: 180px
-}
 .video-layout{
   width: 100%;
 }
 @media screen and (max-width: 900px) {
   .category-btn{
     margin: 10px;
+  }
+  .video-card{
+    width: 90%;
+    margin: 2rem;
+  }
+  .player-layout{
+    margin: 0;
+  }
+  .player-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -95,10 +108,6 @@ a {
   }
   .video-layout{
     margin: 1rem;
-  }
-  .video-card{
-    width: 97%;
-    height: 100%
   }
   .react-player {
     height: 45vh !important;

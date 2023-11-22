@@ -31,10 +31,10 @@ const VideoPlayer = ({result}) => {
     }, [id])
     console.log(selectedVideo)
   return (
-    videos ? <Stack direction={{md: 'row'}} spacing={4} sx={{margin: '2rem'}}>
+    videos ? <Stack direction={{md: 'row'}} spacing={4} className="player-layout">
         <Box sx={{width: '100%', height: '100%'}}>
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}&origin=https://www.youtube.com`} className='react-player' controls={true}/>
-            <Stack direction={{xs: 'column', md: 'row'}} justifyContent='space-between' sx={{margin: '1rem'}}>
+            <Stack direction={'row'} justifyContent='space-between' sx={{margin: '1rem'}}>
             <div>
                 <Typography variant='h6' gutterBottom>{selectedVideo.snippet.title}</Typography>
                 <Typography variant='subtitle2'>{selectedVideo.snippet.channelTitle}</Typography>
@@ -45,7 +45,7 @@ const VideoPlayer = ({result}) => {
             </Stack>
             </Stack>
         </Box>
-        <Stack spacing={2}>
+        <Stack spacing={{md: 2}}>
         {videos.map((video)=>(
             <div key={video.id.videoId}>
             <VideosCard video={video}/>

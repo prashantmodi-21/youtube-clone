@@ -10,6 +10,7 @@ function App() {
   const [category, setCategory] = useState('New')
   const [videos, setVideos] = useState(null)
   const [progress, setProgress] = useState(0)
+  const [darkMode, setDarkMode] = useState(false)
   useEffect(()=>{
     setProgress(25)
     FetchApi(`search?part=snippet&q=${category}`)
@@ -29,6 +30,9 @@ function App() {
   const progressBar = (value)=>{
     setProgress(value)
   }
+  const chgMode = (option)=>{
+    setDarkMode(option)
+  }
   return (
     <>
     <StyledEngineProvider injectFirst />
@@ -36,7 +40,7 @@ function App() {
       <Box sx={progress === 0 ? {width: "0"} : {width: '100%'}}>
         <LinearProgress variant="determinate" value={progress} color='error'/>
       </Box>
-      <Navbar/>
+      <Navbar mode={chgMode} prevMode={darkMode}/>
       <Routes>
         <Route path='/' element={<Feed videos={videos} category={category} categoryName={handleSearch}/>}/>
         <Route path='/channel/:id' element={<ChannelDetail result={progressBar}/>}/>

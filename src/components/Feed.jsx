@@ -1,7 +1,11 @@
+import { useEffect } from 'react'
 import {Sidebar, Videos} from './'
 import { CircularProgress, Stack, Typography } from '@mui/material'
 
 const Feed = ({videos, categoryName, category}) => {
+  useEffect(()=>{
+    categoryName("New")
+  }, [])
   return (
     <Stack direction={{ xs: 'column', sm: 'row'}}>
       <Sidebar category={category} categoryName={categoryName}/>

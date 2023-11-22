@@ -14,11 +14,16 @@ const ChannelDetail = ({result}) => {
     .then((data)=>{
       setChannelDetail(data.items[0])
       result(50)
+      console.log(50)
     })
     FetchApi(`search?channelId=${id}&part=snippet&order=date`)
     .then((data)=>{
       setChannelVideos(data.items)
       result(100)
+      console.log(100)
+      setTimeout(() => {
+        result(0)
+      }, 1000);
     })
   }, [])
   return (
