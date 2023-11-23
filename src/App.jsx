@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { ChannelDetail, Feed, Navbar, SearchFeed, VideoPlayer } from './components'
-import { Box, LinearProgress, StyledEngineProvider } from '@mui/material'
+import { Box, CssBaseline, LinearProgress, StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { FetchApi } from './utils/FetchFromApi'
 
@@ -24,6 +24,12 @@ function App() {
     })
   }, [category])
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   const handleSearch = (query)=>{
     setCategory(query)
   }
@@ -35,6 +41,8 @@ function App() {
   }
   return (
     <>
+    <ThemeProvider theme={darkMode && darkTheme}>
+      <CssBaseline/>
     <StyledEngineProvider injectFirst />
       <BrowserRouter>
       <Box sx={progress === 0 ? {width: "0"} : {width: '100%'}}>
@@ -48,6 +56,7 @@ function App() {
         <Route path='/video/:id' element={<VideoPlayer result={progressBar}/>}/>
       </Routes>
       </BrowserRouter>
+      </ThemeProvider>
     </>
   )
 }
