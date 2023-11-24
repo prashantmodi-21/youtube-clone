@@ -26,7 +26,8 @@ function App() {
 
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      mode: darkMode ? 'dark' : 'light',
+      
     },
   });
 
@@ -41,7 +42,7 @@ function App() {
   }
   return (
     <>
-    <ThemeProvider theme={darkMode && darkTheme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline/>
     <StyledEngineProvider injectFirst />
       <BrowserRouter>

@@ -14,7 +14,7 @@ const SearchFeed = ({keyword, searchResult}) => {
       <Typography variant='h4' gutterBottom>Search Results For: <span style={{color: '#FC1503'}}>{query}</span></Typography>
       <Stack direction='row' justifyContent='center' flexWrap='wrap'>
         {!searchResult ? <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}><CircularProgress /></div> : searchResult.map((video)=>(
-          <Box key={video.id.videoId ? video.id.videoId : video.id.channelId} sx={{margin: '8px'}}><VideosCard video={video}/></Box>
+          <Box key={video.id.videoId ? video.id.videoId : video.id.channelId} sx={{margin: '1rem'}}><VideosCard video={video}/></Box>
         ))}
       </Stack>
     </Container>

@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 import React from 'react'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import HomeIcon from '@mui/icons-material/Home';
@@ -38,10 +38,10 @@ const Sidebar = ({categoryName, category}) => {
     <div>
     <Stack className='scroll-horizontal sidebar' direction={{xs: 'row', sm: 'column'}} alignItems='center' sx={{overflowX: 'hidden'}}>
       {categories.map((item)=>(
-      <button className='category-btn' key={item.name} style={{background: item.name === category && '#FC1503', color: item.name === category && '#FFFFFF'}} onClick={()=>categoryName(item.name)}>
+      <Link className='category-btn' color='text.primary' gutterBottom key={item.name} style={{background: item.name === category && '#FC1503', color: item.name === category && '#FFFFFF', textDecoration: 'none'}} onClick={()=>categoryName(item.name)}>
         <span style={{marginRight: '2px'}}>{item.icon}</span>
         <span><Typography variant='subtitle2'>{item.name}</Typography></span>
-      </button>
+      </Link>
       ))}
       <Typography className='copyright' variant='subtitle2' style={{marginTop: '1rem'}}>Copyright@Youtube 2023</Typography>
     </Stack>

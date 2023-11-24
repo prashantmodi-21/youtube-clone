@@ -1,7 +1,7 @@
-import { Box, CircularProgress, Stack, Typography } from '@mui/material'
+import { Box, CircularProgress, Stack, Typography, Link } from '@mui/material'
 import { ThumbUp, ViewStream } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link as RouterLink, useParams } from 'react-router-dom'
 import { FetchApi } from '../utils/FetchFromApi'
 import VideosCard from './VideosCard'
 import ReactPlayer from 'react-player'
@@ -29,7 +29,6 @@ const VideoPlayer = ({result}) => {
                 result(100)
             })
     }, [id])
-    console.log(selectedVideo)
   return (
     videos ? <Stack direction={{md: 'row'}} spacing={4} className="player-layout">
         <Box sx={{width: '100%', height: '100%'}}>
@@ -37,9 +36,9 @@ const VideoPlayer = ({result}) => {
             <Stack direction={'row'} justifyContent='space-between' sx={{margin: '1rem'}}>
             <div>
                 <Typography variant='h6' gutterBottom>{selectedVideo.snippet.title}</Typography>
-                <Link to={`/channel/${selectedVideo.snippet.channelId}`}><Typography variant='subtitle2'>{selectedVideo.snippet.channelTitle}</Typography></Link>
+                <Link to={`/channel/${selectedVideo.snippet.channelId}`} component={RouterLink} color='text.secondary' sx={{textDecoration: 'none'}}><Typography variant='subtitle2'>{selectedVideo.snippet.channelTitle}</Typography></Link>
             </div>
-            <Stack direction='row' alignItems='center' spacing={1}>
+            <Stack direction='row' alignItems='center' spacing={1} color='text.secondary'>
             <ThumbUp/><Typography variant='subtitle2'>{selectedVideo.statistics.likeCount}</Typography>
             <ViewStream/><Typography variant='subtitle2'>{selectedVideo.statistics.viewCount}</Typography>
             </Stack>
@@ -47,9 +46,9 @@ const VideoPlayer = ({result}) => {
         </Box>
         <Stack spacing={{md: 2}}>
         {videos.map((video)=>(
-            <div key={video.id.videoId}>
+            <Box key={video.id.videoId} sx={{display: 'flex', justifyContent: 'center', margin: '1rem'}}>
             <VideosCard video={video}/>
-            </div>
+            </Box>
         ))}
         </Stack>
     </Stack> : <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh'}}><CircularProgress sx={{display: 'flex'}}/></div>

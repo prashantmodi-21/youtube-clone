@@ -1,14 +1,13 @@
-import { Box, Button, IconButton, Paper, Stack, TextField, Typography} from '@mui/material'
+import { Button, IconButton, Paper, Stack, Typography, Link, InputBase} from '@mui/material'
 import React, { useState } from 'react'
 import { logo } from '../utils/constants'
 import { Brightness4, Brightness7, Search } from '@mui/icons-material'
-import { Link } from 'react-router-dom'
-import { useTheme } from '@emotion/react'
+import { Link as RouterLink } from 'react-router-dom'
 const Navbar = ({mode, prevMode}) => {
   const [searchQuery, setSearchQuery] = useState()
   return (
     <Stack direction='row' justifyContent='space-between' sx={{padding: '8px 1rem'}}>
-      <Link to={'/'}>
+      <Link to={'/'} component={RouterLink} color='text.primary' sx={{textDecoration: 'none'}}>
       <div style={{display: 'flex', alignItems: 'center'}}>
       <img
         src={logo}
@@ -19,8 +18,8 @@ const Navbar = ({mode, prevMode}) => {
       </Link>
       <Stack direction={'row'} alignItems={'center'}>
       <Paper sx={{padding: '4px 12px', borderRadius: '20px'}}>
-        <TextField variant='standard' className='search-bar' placeholder='Search...' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)}/>
-        <Link to={`/search/${searchQuery}`}><Button color='error'><Search/></Button></Link>
+        <InputBase className='search-bar' placeholder='Search...' value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)}/>
+        <Button to={`/search/${searchQuery}`} component={RouterLink} color='error'><Search/></Button>
       </Paper>
       <IconButton onClick={()=>mode(!prevMode)}>{prevMode === false ? <Brightness4/> : <Brightness7/>}</IconButton>
       </Stack>

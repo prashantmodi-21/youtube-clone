@@ -8,6 +8,10 @@ const options = {params: {
     'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
   }}
 export const FetchApi = async(query)=>{
+  try {
     const { data } = await axios.get(`${URL}/${query}`, options)
     return data
+  } catch (error) {
+    console.log("Failed to Load Resources")
+  }
 }

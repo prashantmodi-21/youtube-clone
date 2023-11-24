@@ -4,9 +4,9 @@ import VideosCard from './VideosCard'
 
 const Videos = ({videos}) => {
   return (
-    <Stack direction={{xs: 'column', sm: 'row'}} flexWrap='wrap' gap={2}>
+    <Stack direction={{xs: 'column', sm: 'row'}} flexWrap='wrap' gap={{xs: 2, sm: 0}}>
           {videos && videos.map((video)=>(
-            <Box key={video.id.channelId ? video.id.channelId : video.id.videoId}>
+            <Box key={video.id.channelId ? video.id.channelId : video.id.videoId} sx={{margin: '1rem'}}>
               <VideosCard video={video}/>
             </Box>
            ))}
