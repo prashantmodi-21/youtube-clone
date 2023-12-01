@@ -27,7 +27,9 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
+.navbar{
+  padding: '8px 1rem'
+}
 .category-btn:hover {
   background-color: #FC1503 !important;
   color: white !important;

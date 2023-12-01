@@ -33,16 +33,16 @@ const VideoPlayer = ({result}) => {
     videos ? <Stack direction={{md: 'row'}} spacing={4} className="player-layout">
         <Box sx={{width: '100%', height: '100%'}}>
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className='react-player' controls={true}/>
-            <Stack direction={'row'} justifyContent='space-between' sx={{margin: '1rem'}}>
-            <div>
+            <Box sx={{margin: '1rem'}}>
+            <Box>
                 <Typography variant='h6' gutterBottom>{selectedVideo.snippet.title}</Typography>
                 <Link to={`/channel/${selectedVideo.snippet.channelId}`} component={RouterLink} color='text.secondary' sx={{textDecoration: 'none'}}><Typography variant='subtitle2'>{selectedVideo.snippet.channelTitle}</Typography></Link>
-            </div>
-            <Stack direction='row' alignItems='center' spacing={1} color='text.secondary'>
+            </Box>
+            <Stack direction='row' alignItems='center' spacing={1} color='text.secondary' sx={{marginTop: '1rem'}}>
             <ThumbUp/><Typography variant='subtitle2'>{selectedVideo.statistics.likeCount}</Typography>
             <ViewStream/><Typography variant='subtitle2'>{selectedVideo.statistics.viewCount}</Typography>
             </Stack>
-            </Stack>
+            </Box>
         </Box>
         <Stack spacing={{md: 2}}>
         {videos.map((video)=>(

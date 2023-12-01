@@ -6,8 +6,8 @@ import { Link as RouterLink } from 'react-router-dom'
 const Navbar = ({mode, prevMode}) => {
   const [searchQuery, setSearchQuery] = useState()
   return (
-    <Stack direction='row' justifyContent='space-between' sx={{padding: '8px 1rem'}}>
-      <Link to={'/'} component={RouterLink} color='text.primary' sx={{textDecoration: 'none'}}>
+    <Stack direction='row' justifyContent='space-between' sx={{padding: '8px 0'}}>
+      <Link to={'/'} component={RouterLink} color='text.primary' sx={{textDecoration: 'none', paddingLeft: '10px'}}>
       <div style={{display: 'flex', alignItems: 'center'}}>
       <img
         src={logo}
